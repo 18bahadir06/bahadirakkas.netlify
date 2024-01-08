@@ -8,12 +8,12 @@
   "description": "bahadirakkas proje",
   "main": "app.js",
   "type": "module",
-  "scripts": {
-    "start": "nodemon app.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "npm run build"
-  },
+"scripts": {
+  "start": "nodemon app.js",
+  "build": "your-build-command",
+  "predeploy": "npm run build",
+  "deploy": "netlify deploy --prod"
+},
   "author": "bahadir",
   "license": "ISC",
   "dependencies": {
