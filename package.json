@@ -9,10 +9,10 @@
   "main": "app.js",
   "type": "module",
 "scripts": {
-  "start": "nodemon app.js",
-  "build": "your-build-command",
-  "predeploy": "npm run build",
-  "deploy": "netlify deploy --prod"
+  "start": "nodemon app.js",       
+  "build": "npm run build",       
+  "predeploy": "npm run build",     
+  "deploy": "netlify deploy --prod" 
 },
   "author": "bahadir",
   "license": "ISC",
