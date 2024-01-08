@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bahadır AKKAŞOĞLU</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="Home/css/aos.css?ver=1.1.0" rel="stylesheet">
+    <link href="Home/css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="Home/css/main.css?ver=1.1.0" rel="stylesheet">
+    
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <% Kullanici.forEach(user => { %>
+    <% BoolOnay.forEach(Bool => { %>
+  <body id="top">
+    <header>
+      <div class="profile-page sidebar-collapse">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+          <div class="container">
+            <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip"><%=user.AdSoyad.split(' ')[0]%></a>
+              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="navbar-nav">
+                <% if(Bool.Hakkimda == true){%>
+                  <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">Hakkında</a></li>                 
+                <%} if(Bool.Yetenekler == true){%>
+                  <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Yetenekler</a></li>
+                <%} if(Bool.Portfolyo == true){ %>
+                  <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolyo">Portfolyo</a></li>  
+                <%} if(Bool.Deneyim == true){%>
+                  <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Deneyim</a></li>
+                <%} if(Bool.Egitim == true){%>
+                  <li class="nav-item"><a class="nav-link smooth-scroll" href="#egitim">Eğitim</a></li>
+                <% }%>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">İletişim</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="page-content">
+      <div>
+    <div class="profile-page">
+      <div class="wrapper">
+        <div class="page-header page-header-small" filter-color="green">
+          <div class="page-header-image" data-parallax="true" style="background-image: url('Home/images/graphic-design-1.jpg')"></div>
+          <div class="container">
+            <div class="content-center">
+              <div class="cc-profile-image"><a href="#"><img src="<%=user.Foto%>" alt="Image"/></a></div>
+              <div class="h2 title"><%=user.AdSoyad%></div>
+              <p class="category text-white"><%=user.Unvan%></p>
+              <% if(Bool.Email == true){ %>
+                <a class="btn btn-primary smooth-scroll mr-2" href=mailto:<%=user.Email%>><agentavery@sample.com?subject="HTML link">Mail gönder</a>
+              <% }%>
+                <a class="btn btn-primary" href="Home/cv/cv.pdf" download>Download CV</a>
+            </div>
+          </div>
+          <div class="section">
+            <div class="container">
+              <div class="button-container">
+                <% Link.forEach(Link => { %>
+                  <a class="btn btn-default btn-round btn-lg btn-icon" href="<%= Link.link %>" rel="tooltip" title="Follow me on <%=Link.LinkAd%>">
+                    <i class="<%= Link.linkIcon %>"></i>
+                  </a>  
+                <%})%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- hakkımda-->
+      <% if(Bool.Hakkimda == true){%>
+        <div class="section" id="about">
+          <div class="container">
+            <div class="card" data-aos="fade-up" data-aos-offset="10">
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="card-body">
+                    <div class="h4 mt-0 title">Hakkımda</div>
+                    <p><%=user.Hakkimda%></p>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="card-body">
+                    <div class="h4 mt-0 title">Temel Bilgilerim</div>
+                    <% if(Bool.Yas == true){%>
+                      <div class="row">
+                        <div class="col-sm-4"><strong class="text-uppercase">Yaş :</strong></div>
+                        <div class="col-sm-8"><%=user.Yas%></div>
+                      </div>
+                    <% } if(Bool.Email == true){%>
+                      <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Email :</strong></div>
+                        <div class="col-sm-8"><%=user.Email%></div>
+                      </div>
+                    <% } if(Bool.Telefon == true){%>
+                      <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Telefon :</strong></div>
+                        <div class="col-sm-8"><%=user.Telefon%></div>
+                      </div>
+                    <% } if(Bool.Adres == true){%>
+                      <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Adres:</strong></div>
+                        <div class="col-sm-8"><%=user.Adres%></div>
+                      </div>
+                    <% } if(Bool.Language == true){%>
+                      <div class="row mt-3">
+                        <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
+                        <div class="col-sm-8"><%=user.Language%></div>
+                      </div>
+                    <% }%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+      <!-- Yetenekler-->
+      <% if(Bool.Yetenekler == true){ %>
+        <div class="section" id="skill">
+          <div class="container">
+            <div class="h4 text-center mb-4 title">Yetenekler</div>
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+              <div class="card-body">
+                
+                  <div class="row">
+                    <% Yetenekler.forEach(yetenek => { %>
+                    <div class="col-md-6">
+                      <div class="progress-container progress-primary"><span class="progress-badge"><%=yetenek.YetenekAd%></span>
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-primary" id="kutu" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=yetenek.YetenekDeger%>%;"></div>
+                          <span class="progress-value"><%=yetenek.YetenekDeger%>%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <% }) %>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+   <!-- Portfolyo-->  
+   <% var websayac=0; %>
+   <% var descsayac=0; %>
+   <% var pysayac=0; %>
+   <% Portfolyo.forEach(portfolyo => { %>
+    <% if (portfolyo.Tur === 'Web uygulama') { %>
+      <% websayac++; %>
+    <% } else if(portfolyo.Tur === 'Masaüstü uygulama') { %>
+      <% descsayac++; %>
+    <% } else if(portfolyo.Tur === 'Python uygulama') { %>
+      <% pysayac++; %>
+    <% } %>
+  <% }); %>
+  
+  <% if(Bool.Portfolyo == true){ %>
+  <div class="section" id="portfolyo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <div class="h4 text-center mb-4 title">Portfolyo</div>
+          <div class="nav-align-center">
+            <ul class="nav nav-pills nav-pills-primary" role="tablist">
+              <% if (websayac>0) { %>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development" role="tablist"><i class="fa fa-globe"></i></a></li>
+              <% } if(descsayac>0){ %>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#desktop-development" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
+              <% } if(pysayac>0){ %>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#python" role="tablist"><i class="fa fa-code" aria-hidden="true"></i></a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content gallery mt-5">
+        <% if (websayac>0) { %>
+          <div class="tab-pane active" id="web-development">
+            <div class="ml-auto mr-auto">
+              <div class="row">
+                <% var control = true; %>
+                <% var counter = 0; %>
+                <div class="col-md-6">
+                <% Portfolyo.forEach(Portfolyo => { %>
+                  <% if(Portfolyo.Tur=="Web uygulama"){ %>
+                    <% var index=counter; %>
+                    
+                    <div class="cc-porfolio-image img-raised aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                      <a href="<%=Portfolyo.Link%>">
+                      <figure class="cc-effect"><img src="<%=Portfolyo.Resim1%>" alt="Image">
+                        <figcaption>
+                          <div class="h4"><%=Portfolyo.Baslik1%></div>
+                          <p>Web Development</p>
+                        </figcaption>
+                      </figure>
+                    </a></div>
+                    <% counter++; %>
+                    <% if (counter % 2 === 0) { %>
+                      <!-- Her iki değeri gösterdikten sonra yeni bir div aç -->
+                      </div><div class="col-md-6">
+                    <% } %>
+                  <%}%>
+                <% }) %>
+              </div>
+              </div>
+            </div>
+          </div>
+        <% } if(descsayac>0){ %>
+          <div class="tab-pane" id="desktop-development" role="tabpanel">
+            <div class="ml-auto mr-auto">
+              <div class="row">
+                <% var control = true; %>
+                <% var counter = 0; %>
+                <div class="col-md-6">
+                <% Portfolyo.forEach(Portfolyo => { %>
+                  <% if(Portfolyo.Tur=="Masaüstü uygulama"){ %>
+                    <% var index=counter; %>
+                    
+                    <div class="cc-porfolio-image img-raised aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                      <a href="<%=Portfolyo.Link%>">
+                      <figure class="cc-effect"><img src="<%=Portfolyo.Resim1%>" alt="Image">
+                        <figcaption>
+                          <div class="h4"><%=Portfolyo.Baslik1%></div>
+                          <p>Desktop Development</p>
+                        </figcaption>
+                      </figure>
+                    </a></div>
+                    <% counter++; %>
+                    <% if (counter % 2 === 0) { %>
+                      <!-- Her iki değeri gösterdikten sonra yeni bir div aç -->
+                      </div><div class="col-md-6">
+                    <% } %>
+                  <%}%>
+                <% }) %>
+              </div>
+              </div>
+            </div>
+          </div>
+        <% } if(pysayac>0){ %>
+          <div class="tab-pane" id="python" role="tabpanel">
+          <div class="ml-auto mr-auto">
+            <div class="row">
+              <% var control = true; %>
+              <% var counter = 0; %>
+              <div class="col-md-6">
+              <% Portfolyo.forEach(Portfolyo => { %>
+                <% if(Portfolyo.Tur=="Python uygulama"){ %>
+                  <% var index=counter; %>
+                  
+                  <div class="cc-porfolio-image img-raised aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <a href="<%=Portfolyo.Link%>">
+                    <figure class="cc-effect"><img src="<%=Portfolyo.Resim1%>" alt="Image">
+                      <figcaption>
+                        <div class="h4"><%=Portfolyo.Baslik1%></div>
+                        <p>Python Development</p>
+                      </figcaption>
+                    </figure>
+                  </a></div>
+                  <% counter++; %>
+                  <% if (counter % 2 === 0) { %>
+                    <!-- Her iki değeri gösterdikten sonra yeni bir div aç -->
+                    </div><div class="col-md-6">
+                  <% } %>
+                <%}%>
+              <% }) %>
+            </div>
+            </div>
+          </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <%}%>
+
+<!-- Deneyim-->
+<% if(Bool.Deneyim == true){ %>
+  <div class="section" id="experience">
+    <div class="container cc-experience">
+      <div class="h4 text-center mb-4 title">İş Deneyimim</div>
+      <% Deneyim.forEach(Deneyim => { %>
+        <div class="card">
+          <div class="row">
+            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+              <div class="card-body cc-experience-header">
+                <p><%=Deneyim.Time %></p>
+                <div class="h5"><%=Deneyim.Isletme %></div>
+              </div>
+            </div>
+            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+              <div class="card-body">
+                <div class="h5"><%=Deneyim.Unvan %></div>
+                <p><%=Deneyim.Text %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+<%}%>
+<!-- Eğitim-->
+<% if(Bool.Egitim == true){ %>
+  <div class="section" id="egitim">
+    <div class="container cc-education">
+      <div class="h4 text-center mb-4 title">Eğitim</div>
+      <% Egitim.forEach(Egitim => { %>
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+            <div class="card-body cc-education-header">
+              <p><%=Egitim.Time%></p>
+              <div class="h5"><%=Egitim.Derece%></div>
+            </div>
+          </div>
+          <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+            <div class="card-body">
+              <div class="h5"><%=Egitim.OkulAd%></div>
+              <p class="category"><%=Egitim.Bolum%></p>
+              <p><%=Egitim.Text%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+<%}%>
+<div class="section" id="contact">
+  <div class="cc-contact-information" style="background-image: url('Home/images/staticmap.png')">
+    <div class="container">
+      <div class="cc-contact">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="card mb-0" data-aos="zoom-in">
+              <div class="h4 text-center title">İletişim</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <form action="/send" method="post">
+                      <div class="p pb-3"><strong>BANA ULAŞIN</strong></div>
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                            <input class="form-control" type="text" name="Isim" placeholder="İsim" required="required" maxlength="50">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                            <input class="form-control" type="text" name="Baslik" placeholder="Başlık" required="required" maxlength="50">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input class="form-control" type="email" name="Email" placeholder="E-mail" required="required" maxlength="50">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="form-group">
+                            <textarea class="form-control" name="Mesaj" placeholder="Mesajınız" required="required" maxlength="2000"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <button class="btn btn-primary" type="submit">Gönder</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    
+                    <% if(Bool.Adres == true){%>
+                      <p class="mb-0"><strong>Adres </strong></p>
+                      <p class="pb-2"><%=user.Adres%></p>
+                    <% } if(Bool.Telefon == true){ %>
+                      <p class="mb-0"><strong>Telefon </strong></p>
+                      <p class="pb-2"><%=user.Telefon%></p>
+                    <% } if(Bool.Email == true){ %>
+                      <p class="mb-0"><strong>Email</strong></p>
+                      <p><%=user.Email%></p>
+                    
+                      <div class="row">
+                        <div class="col">
+                          <a href=mailto:<%=user.Email%>><agentavery@sample.com?subject="HTML link">Bana e-posta göndermek için buraya tıklayınız!</a>
+                        </div>
+                      </div>
+                      <% } %>
+                  </div>
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <footer class="footer">
+      <div class="container text-center">
+        <% Link.forEach(Link => { %>
+          <a class="cc-instagram btn btn-link" href="<%= Link.link %>">
+            <i class="<%= Link.linkIcon %> fa-2x " aria-hidden="true"></i>
+          </a>  
+        <% }) %>
+      </div>
+      <div class="h4 title text-center">Bahadır AKKAŞOĞLU</div>
+      <div class="text-center text-muted">
+        <p>&copy; 2023 Bahadır AKKAŞOĞLU. Tüm hakları saklıdır.<br></p>
+      </div>
+    </footer>
+    <script src="Home/js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
+    <script src="Home/js/core/popper.min.js?ver=1.1.0"></script>
+    <script src="Home/js/core/bootstrap.min.js?ver=1.1.0"></script>
+    <script src="Home/js/now-ui-kit.js?ver=1.1.0"></script>
+    <script src="Home/js/aos.js?ver=1.1.0"></script>
+    <script src="Home/scripts/main.js?ver=1.1.0"></script>
+  </body>
+    <% });%>
+  <% }); %>
+</html>

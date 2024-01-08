@@ -1,0 +1,39 @@
+{
+  "engines": {
+    "node": "18.x"
+  },
+  "homepage": "https://18bahadir06.github.io/bahadirakkas_nodejs",
+  "name": "bahadirakkas-netlify",
+  "version": "1.0.0",
+  "description": "bahadirakkas proje",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "author": "bahadir",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.41.1",
+    "cookie-session": "^2.0.0",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "nodemon": "^3.0.1"
+  }
+}

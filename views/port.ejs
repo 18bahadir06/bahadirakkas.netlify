@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html : x-data="data()" lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= Portfolyo.Baslik1 %></title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Admin/assets/css/tailwind.output.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../Admin/assets/js/init-alpine.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+    ></script>
+    <script src="../Admin/assets/js/charts-lines.js" defer></script>
+    <script src="../Admin/assets/js/charts-pie.js" defer></script>
+    <style>
+      /* Lightbox Container */
+      .lightbox-container {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+      }
+
+      /* Lightbox Image */
+      .lightbox-image {
+          max-width: 80%;
+          max-height: 80%;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Close Button */
+      .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="flex h-screen bg-gray-50 dark:bg-gray-900"
+    :class="{ 'overflow-hidden': isSideMenuOpen }">
+   <!-- Desktop sidebar -->
+   <!-- Backdrop -->
+   <div class="flex flex-col flex-1 w-full">
+       <main class="h-full pb-16 overflow-y-auto">
+
+        <div class="container px-6 mx-auto grid">
+          <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            <%= Portfolyo.Baslik1 %>
+          </h2>
+          <hr class="my-8" />
+          <% if(Portfolyo.GitLink !== "" || Portfolyo.GitLink !== null){%>
+            <div class="px-6 my-6">
+              <a style="background-color: #63b3ed; color:white;" class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="<%=Portfolyo.GitLink%>">
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <span>GitHub kaynak kodlarına bakın</span>
+                  </div>
+                  <span>Daha fazlasını görüntüle →</span>
+                </a>
+            </div>
+          <%}%>
+          <div  style="    position: relative;
+          margin: auto;" class="col-md-6 d-flex align-items-center justify-content-center">
+            <div style="width: 50%; height: 50%;    position: relative;
+            margin: auto;" class="cc-porfolio-image img-raised aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom" onclick="openLightbox()">
+                <figure class="cc-effect">
+                    <img src="../<%=Portfolyo.Resim1%>" alt="Image">
+                </figure>
+                
+            </div>
+            
+        </div>
+        
+
+<!-- Lightbox Container -->
+<div id="lightbox" class="lightbox-container" onclick="closeLightbox()">
+    <span class="close-button">&times;</span>
+    <img class="lightbox-image" id="lightbox-img" src="" alt="Fullscreen Image">
+</div>
+
+<script>
+    function openLightbox() {
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+        var clickedImage = document.querySelector('.cc-porfolio-image img');
+
+        lightboxImg.src = clickedImage.src;
+        lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+        var lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+    }
+</script>
+          <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+              <%= Portfolyo.Baslik2 %>
+            </h4>
+            <hr class="my-8" />
+          <br>
+            <p >
+                <%= Portfolyo.Text %>
+            </p>
+          <br>
+          <br>   
+          </div><style>
+            .button {
+              border-radius: 8px;
+              background-color: #63b3ed;
+              border: none;
+              color: #FFFFFF;
+              text-align: center;
+              font-size: 15px;
+              padding: 10px;
+              width: 200px;
+              transition: all 0.5s;
+              cursor: pointer;
+              margin: 5px;
+            }
+            
+            .button span {
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              transition: 0.5s;
+            }
+            
+            .button span:after {
+              content: '\00bb';
+              position: absolute;
+              opacity: 0;
+              top: 0;
+              right: -20px;
+              transition: 0.5s;
+            }
+            
+            .button:hover span {
+              padding-right: 20px;
+            }
+            
+            .button:hover span:after {
+              opacity: 1;
+              right: 0;
+            }
+            </style>
+          <div >
+          <form action="/" method="get">
+            <button href="/" class="button"><span>Web sitesine geri dön</span></button>
+          </form>
+          </div>
+
+
+        </div>
+      </main>
+   </div>
+  </body>
+</html>
