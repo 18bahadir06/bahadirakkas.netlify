@@ -10,7 +10,7 @@
   "type": "module",
 "scripts": {
   "start": "nodemon app.js",       
-"build": "your-build-command",
+"build": "your-build-command"
 },
   "author": "bahadir",
   "license": "ISC",
