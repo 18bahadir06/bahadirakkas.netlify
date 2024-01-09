@@ -8,10 +8,10 @@
   "description": "bahadirakkas proje",
   "main": "app.js",
   "type": "module",
-"scripts": {
-  "start": "nodemon app.js",       
-"build": "nodemon app.js"
-},
+  "scripts": {
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
+  },
   "author": "bahadir",
   "license": "ISC",
   "dependencies": {
