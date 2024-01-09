@@ -32,7 +32,7 @@ dotenv.config();
 conn();
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //cloud
 cloudinary.config({
@@ -138,6 +138,8 @@ app.post('/send', async (req, res) => {
 
   res.redirect('/');
 });
+
+
 
 app.listen(process.env.PORT||port, () => {
   console.log(`Uygulama ${port} portunda çalışıyor`);
